@@ -198,7 +198,7 @@ if($rows>0){
                 <!--<button type="submit"  class="w3-button w3-block w3-quarter w3-red w3-section w3-ripple w3-padding" name="payment">Pay</button>-->
                 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="ruwan.wedisa0150-facilitator@gmail.com">
+                    <input type="hidden" name="business" value="sb-k4zut15841023@business.example.com">
                     <input type="hidden" name="lc" value="LK">
                     <input type="hidden" name="item_name" value="billPay">
                     <input type="hidden" name="item_number" value="billPay">
@@ -208,7 +208,7 @@ if($rows>0){
                     <input type="hidden" name="no_note" value="1">
                     <input type="hidden" name="no_shipping" value="1">
                     <input type="hidden" name="rm" value="1">
-                    <input type="hidden" name="return" value="http://localhost/channelling/paymentComplete.php?approved=true&timeslot=<?php echo $timeSlotNum?>&dayBooked=<?php echo $dayBooked?>
+                    <input type="hidden" name="return" value="http://localhost/phpMyfile/MEDI_LANKA/MEDI_LANKA_E-CHANNELLING_WEB_SITE/paymentComplete.php?approved=true&timeslot=<?php echo $timeSlotNum?>&dayBooked=<?php echo $dayBooked?>
                     &Date=<?php echo $appoinmentDate?>
                     &RoomNo=<?php echo $roomNo?>
                     &DocName=<?php echo $docName?>
@@ -220,7 +220,7 @@ if($rows>0){
                     &amount=<?php echo $finalCost?>
 
                     ">
-                    <input type="hidden" name="cancel_return" value="http://localhost/channelling/paymentComplete.php?approved=false&timeslot=<?php echo $timeSlotNum?>&dayBooked=<?php echo $dayBooked?>">
+                    <input type="hidden" name="cancel_return" value="http://localhost/phpMyfile/MEDI_LANKA/MEDI_LANKA_E-CHANNELLING_WEB_SITE/paymentComplete.php?approved=false&timeslot=<?php echo $timeSlotNum?>&dayBooked=<?php echo $dayBooked?>">
                     <input type="hidden" name="tax_rate" value="5.000">
                     <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
                     <input type="hidden" name="notify_url" value="https:http://echannelling.000webhostapp.com/payPalListner.php">
