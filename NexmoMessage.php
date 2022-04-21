@@ -56,7 +56,7 @@ class NexmoMessage {
 	public $ssl_verify = false; // Verify Nexmo SSL before sending any message
 
 
-	function NexmoMessage ($api_key, $api_secret) {
+	function __construcr($api_key, $api_secret) {
 		$this->nx_key = $api_key;
 		$this->nx_secret = $api_secret;
 	}
