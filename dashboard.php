@@ -9,7 +9,7 @@
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/w3.css">
-    <!--<link rel="stylesheet" href="css/bootstrap.min.css">--> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
 
 
     <!-- jQuery library -->
@@ -29,12 +29,12 @@
             //header("location:dashboard.php");
             session_start();
               session_destroy();
-              if(isset($_COOKIE['uname']) and isset($_COOKIE['password'])){
+              if(isset($_COOKIE['email']) and isset($_COOKIE['password'])){
               //  $uname=$_COOKIE['uname'];
                // $pass=$_COOKIE['password'];
-                 unset($_COOKIE['uname']);
+                 unset($_COOKIE['email']);
                 unset($_COOKIE['password']);
-                setcookie('uname','',time()-3600);
+                setcookie('email','',time()-3600);
                 setcookie('password','',time()-3600);
                 }
                 header("location:home.php");
@@ -63,10 +63,10 @@
     </header>
 	<br><br><br>
   <div class="flex-column">
-    <img class="justify-content-center" src="img/avatar.png">
-    <h5 class="ml-3">
+    <img class="allign-content-center ml-4" src="img/avatar.png">
+    <h5 >
       <?php session_start();
-      echo $_SESSION['uname'];
+      echo $_SESSION['email'];
       ?>
   </h5>
   </div>
@@ -167,38 +167,59 @@
             </a>
           </div>
         </div>
-	<div class="col-sm-12">
-			 <div class="container">
+	<div class="container">
      <br><br>
      <div class="row">
        <div class="col-sm-6 f-r-b">
          <h2>Channel a Doctor</h2><hr><br>
-         <form action="/action_page.php">
-           <div class="form-group">
-             <label for="email">Email address:</label>
-             <input type="email" class="form-control" placeholder="Enter email" id="email">
-           </div>
-           <div class="form-group">
-             <label for="pwd">Name:</label>
-             <input type="text" class="form-control" placeholder="Enter your Name" id="name">
-           </div>
-           <div class="form-group">
-             <label for="sel1">Select list:</label>
-             <select class="form-control" id="sel1">
-               <option>Select a Doctor</option>
-               <option>Doctor 01</option>
-               <option>Doctor 02</option>
-               <option>Doctor 03</option>
-             </select>
-           </div>
-           <div class="form-group">
-             <label for="pwd">Day and Number:</label>
-             <input type="text" class="form-control" placeholder="Date And Number auto Genarate here" id="name">
-           </div>
+         <form action="serch_doc.php" method="post">
+                <div class="form-group">
+                  <label for="email">Email address:</label>
+                  <input type="email" class="form-control" placeholder="Enter email" name="email" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Tel Number:</label>
+                  <input type="text" class="form-control" placeholder="Enter your Phone Number" name="tel" id="tel">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Doctor's Name:</label>
+                  <input type="text" class="form-control" placeholder="Doctor's Name" name="name" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Any Specialization:</label>
+                  <select class="form-control" id="sel1" name="spec" required>
+                     <option value="" data-area="0" selected="selected">Any Specialization</option>
+                      <?php
+                        $specList = mysqli_query($conn,"select distinct speciality from doctor");
+                        while($spec = mysqli_fetch_row($specList)){
+                        if($spec[0] == 1){
+                            $spec[0] = "Mental";
+                        }
+                        elseif ($spec[0] == 2){
+                            $spec[0] = "Dental";
+                        }
+                        elseif ($spec[0] == 3){
+                            $spec[0] = "VOG";
+                        }
 
-           <button type="submit" class="btn btn-primary">Submit</button>
-         </form>
-       </div>
+                      ?>
+                    <option value="<?php echo $spec[0]; ?>"><?php echo $spec[0]; ?></option>
+                  <?php
+                    }
+                  ?>                  
+ 
+
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Select Day:</label>
+                  <input type="date" class="form-control" placeholder="DD/MM/YYYY" id="date" name="date" required>
+                </div>
+
+                <button type="submit" name="search" class="btn btn-primary">check availability</button>
+              </form>
+            </div>
+       
        <br><br>
        <div class="col-sm-6">
          <h2>Today's Doctor's Time Table</h2><hr><br>
@@ -228,6 +249,7 @@
        </div>
      </div>
      <br><br><hr class="hr">
+
      <div class="row">
        
 
@@ -240,24 +262,24 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="channel.html" class="nav__link active">
+                    <a href="channel.php" class="nav__link active">
                     <i class='bx bx-grid-alt nav__icon' ></i>
                         <span class="nav__name">Channel a Doctor</span>
                     </a>
 
-                    <a href="doctor.html" class="nav__link">
+                    <a href="doctor.php" class="nav__link">
                         <i class='bx bx-user nav__icon' ></i>
                         <span class="nav__name">Doctors</span>
                     </a>
 
-                    <a href="notice.html" class="nav__link">
+                    <a href="notice.php" class="nav__link">
                         <i class='bx bx-message-square-detail nav__icon' ></i>
                         <span class="nav__name">Special Notes</span>
                     </a>
 
 
 
-                    <a href="report.html" class="nav__link">
+                    <a href="report.php" class="nav__link">
                         <i class='bx bx-folder nav__icon' ></i>
                         <span class="nav__name">Reports</span>
                     </a>

@@ -22,23 +22,35 @@ session_start();
 <?php
 
 	if(isset($_POST['login'])){
-		$uname=$_POST['uname'];
+		$email=$_POST['email'];
 		$pass=$_POST['pass'];
 	}
 
 	if(isset($_POST['login'])){
-		$uname = $_POST["uname"];
-		$sql="SELECT password FROM patient WHERE Uname=\"".$uname."\";";
+		$email = $_POST["email"];
+		$sql="SELECT password FROM patient WHERE Email=\"".$email."\";";
+		$s="SELECT password FROM admin WHERE Uname=\"".$email."\";";
+		if($q=mysqli_query($conn,$s)){
+	 		$row=mysqli_fetch_array($q);
+	 		//$verify = password_verify($_POST['pass'],$row['password']);
+			if ($_POST['pass']==$row['password']) {
+				$_SESSION['uname']=$email;
+				header("location:admin/dashboard.php");
+			}
+	 	}
 	 	if($sqll=mysqli_query($conn,$sql)){
 	 		$row=mysqli_fetch_array($sqll);
 	 		$verify = password_verify($_POST['pass'],$row['password']);
 			if ($verify) {
      		 	if(isset($_POST['remember'])){
-					setcookie('uname',$uname,time()+60*60*7);
+					setcookie('email',$email,time()+60*60*7);
 					setcookie('password',$pass,time()+60*60*7);
 				}
 				//session_start();
-				$_SESSION['uname']=$uname;
+				$sql="SELECT uname FROM patient WHERE Email=\"".$email."\";";
+				$q=mysqli_query($conn,$sql);
+	 			$row=mysqli_fetch_array($q);
+				$_SESSION['email']=$row['uname'];
 				header("location:dashboard.php");
 
  		 	}else{
@@ -96,7 +108,7 @@ session_start();
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username" id="uname" name="uname">
+						<input type="text" class="form-control" placeholder="E-mail" id="email" name="email">
 						
 					</div>
 					<div class="input-group form-group">
@@ -126,11 +138,11 @@ session_start();
 
 </div>
 <?php
-	if(isset($_COOKIE['uname']) and isset($_COOKIE['password'])){
-		$uname=$_COOKIE['uname'];
+	if(isset($_COOKIE['email']) and isset($_COOKIE['password'])){
+		$email=$_COOKIE['email'];
 		$pass=$_COOKIE['password'];
 		echo "<script>
-			document.getElementById('uname').value='$uname';
+			document.getElementById('email').value='$email';
 			document.getElementById('password').value='$pass';
 
 		</script>";
