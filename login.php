@@ -51,7 +51,9 @@ session_start();
 				$q=mysqli_query($conn,$sql);
 	 			$row=mysqli_fetch_array($q);
 				$_SESSION['email']=$row['uname'];
+				$_SESSION['status']=1;
 				header("location:dashboard.php");
+
 
  		 	}else{
       			echo  "<script type=\"text/javascript\">
@@ -82,7 +84,15 @@ session_start();
 								})
 									</script>";;
 		}
-	}
+			$sql="SELECT Id FROM patient WHERE Email='".$email."' ";
+			$result=mysqli_query($conn,$sql);
+			$rows = mysqli_num_rows($result);
+            if ($rows > 0) {
+		 		while($row=mysqli_fetch_array($result)){
+					$_SESSION['uid']=$row['Id'];
+		 		}
+			}
+	 	}
 	
 
 ?>

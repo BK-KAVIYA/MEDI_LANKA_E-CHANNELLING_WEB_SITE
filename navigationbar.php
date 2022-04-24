@@ -1,3 +1,13 @@
+<?php
+include("db.php");
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +23,9 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <!--Alert-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>E Channel</title>
 </head>
@@ -35,7 +48,9 @@
               <a class="nav-link text-uppercase w3-bar-item w3-button w3-padding-large w3-hide-small text-white" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-uppercase w3-bar-item w3-button w3-padding-large w3-hide-small text-white" href="channel.php">Channel a Doctor</a>
+              <form method="post">
+              <button class="nav-link text-uppercase w3-bar-item w3-button bg-primary w3-padding-large w3-hide-small text-white"  name="check">My Channelling</button>
+              </form>
             </li>
             <li class="nav-item">
               <a class="nav-link text-uppercase w3-bar-item w3-button w3-padding-large w3-hide-small text-white" href="doctor.php">Docters</a>
@@ -64,5 +79,26 @@
       </div>
       </nav>
     </div>
+    <?php
+
+$status=$_SESSION['status'];
+//$uid=$_SESSION['sid'];
+if (isset($_POST['check'])) {
+    myFunction();
+  }
+function myFunction() {
+  if($_SESSION['status']==1){
+    header("location:channel.php");
+  }else{
+    echo  "<script type=\"text/javascript\">
+              Swal.fire('Login First!!',
+                    'To Use Fhis Feature Please Login',
+                    'info'
+              )
+            </script>";
+   // header("location:home.php");
+  }
+}
+?>
 </body>
 </html>

@@ -1,3 +1,8 @@
+<?php
+include("db.php");
+session_start();
+?>
+
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
  <meta charset="utf-8">
@@ -19,103 +24,99 @@
 
  <?php include 'navigationbar.php'; ?>
 
-   <!-- form and calender -->
-   <div class="container">
-     <br><br>
-     <div class="row box">
-       <div class="col-sm-6 f-r-b">
-         <h2>Channel a Doctor</h2><hr><br>
-         <form action="/action_page.php">
-           <div class="form-group">
-             <label for="email">Email address:</label>
-             <input type="email" class="form-control" placeholder="Enter email" id="email">
-           </div>
-           <div class="form-group">
-             <label for="pwd">Name:</label>
-             <input type="text" class="form-control" placeholder="Enter your Name" id="name">
-           </div>
-           <div class="form-group">
-             <label for="sel1">Select list:</label>
-             <select class="form-control" id="sel1">
-               <option>Select a Doctor</option>
-               <option>Doctor 01</option>
-               <option>Doctor 02</option>
-               <option>Doctor 03</option>
-             </select>
-           </div>
-           <div class="form-group">
-             <label for="pwd">Day and Number:</label>
-             <input type="text" class="form-control" placeholder="Date And Number auto Genarate here" id="name">
-           </div>
+   <!-- patient detail -->
+     <br><br><br>
+    <div class="container sm-3 border-left border-info border-right ">
+    <div>
+      
+      <h2 class="ml-4 bg bg-info p-3 text-light text-center">Your Booking Informatin</h2>
+    </div>
+   
+    <?php
 
-           <button type="submit" class="btn btn-primary">Submit</button>
-         </form>
-       </div>
-       <br><br>
-       <div class="col-sm-6">
-         <h2>Today's Doctor's Time Table</h2><hr><br>
-         <table class="table table-primary">
-           <thead>
-             <tr>
-               <th>Doctor Name</th>
-               <th>Date And Time</th>
+        $uid=$_SESSION['uid'];
 
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td>Dr.A.S.K.Banagala</td>
-               <td>Monday 4.00pm - 8.00pm</td>
-             </tr>
-             <tr>
-               <td>Dr.ASHAN ABEYEWARDENE</td>
-               <td>Wensday 4.00pm - 8.00pm</td>
-             </tr>
-             <tr>
-               <td>Dr. DAMMIKE SILVA</td>
-               <td>Friday 4.00pm - 8.00pm</td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
-     </div>
-     <br><br><hr class="hr">
-     <div class="row">
-       <div class="col-sm-12">
-         <h2 style="color:white;"> Doctor's Time Table</h2><hr><br>
-         <table class="table table-info">
-           <thead>
-             <tr>
-               <th>Doctor Name</th>
-               <th>Date And Time</th>
-               <th>special</th>
-               <th>Hospital</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td>Doctor 01</td>
-               <td>Monday 4.00pm - 8.00pm</td>
-               <td>Eye</td>
-               <td>colombo</td>
-             </tr>
-             <tr>
-               <td>Doctor 02</td>
-               <td>Wensday 4.00pm - 8.00pm</td>
-               <td>Dental</td>
-               <td>colombo</td>
-             </tr>
-             <tr>
-               <td>Doctor 03</td>
-               <td>Friday 4.00pm - 8.00pm</td>
-               <td>Eye</td>
-               <td>colombo</td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
-     </div>
-   </div>
+        $sql="SELECT * FROM payedpatients WHERE Uid='1'";
+        $result = mysqli_query($conn,$sql);
+        $rows = mysqli_num_rows($result);
+        if($rows>0){
+        while ($row = mysqli_fetch_array($result)){
+        $name =$row['patientName'];
+        $refid = $row['refNo'];
+        $appoinmentDate =$row['dateBooked'];
+        $doctorCharges =$row['amount'];
+        $docname =$row['doctorName']; ?>
+
+       <div class="container"  style="font-size: 20px">
+    <table class="container ">
+      
+      <br><br>
+        <tr class="w3-container ">
+            <td class="w3-container w3-padding">Reference No  </td>
+            <td class="w3-container">: 000<?php echo $refid;?></td>
+        </tr>
+
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Patient's Name  </td>
+            <td class="w3-container">: Mr/Mrs/Miss.<?php echo $name;?></td>
+        </tr>
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Doctor's Hospital  </td>
+            <td class="w3-container">: <?php echo $docname;?></td>
+        </tr>
+
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Appoinment Time  </td>
+            <td class="w3-container">: <?php echo $appoinmentDate;?> </td>
+        </tr>
+
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Doctor Charges  </td>
+            <td class="w3-container">: <?php echo $doctorCharges;?>.00 LKR</td>
+        </tr>
+
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Doctor Charges VAT  </td>
+            <td class="w3-container">: <?php
+
+                                    $doctorChargesVat = (($doctorCharges*115)/100);
+                                    echo number_format((float)$doctorChargesVat, 2, '.', '')." LKR (VAT 15%)";
+
+                                    ?>
+                                    </td>
+        </tr>
+
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Hospital Charges  </td>
+            <td class="w3-container">: 800.00 LKR</td>
+        </tr>
+
+        <tr class="w3-container">
+            <td class="w3-container w3-padding">Booking Charges  </td>
+            <td class="w3-container">: 99.00 LKR</td>
+        </tr>
+
+        <tr class="w3-container w3-padding">
+            <td class="w3-container"><strong>Total Charges(Including Tax) </strong> </td>
+            <td class="w3-container">:<strong> <?php echo number_format((float)$doctorChargesVat+(800.00+99.00), 2, '.', '');
+                    $finalCost = number_format((float)$doctorChargesVat+(500.00+99.00), 2, '.', '');
+                    $inDollors = number_format((float)0.0063* $finalCost, 2, '.', '');
+                    ?> LKR</strong></td>
+        </tr>
+    </table>
+    <hr>
+
+</div> <?php
+
+    }
+}
+?>
+    <a href="home.php"><button type="submit" class="btn btn-info btn-lg text-light btn-block" >BACK</button></a>
+</div>
+<br>
+<br>
+<br>      
+        
     <?php include 'footer.php'; ?>
    <style media="screen">
      .hr{
@@ -123,6 +124,7 @@
        background-color: white;
      }
    </style>
-
+</div>
    </body>
  </html>
+ <?php mysqli_close($conn);?>

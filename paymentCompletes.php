@@ -15,7 +15,7 @@ $amount = $_REQUEST['amount'];
 $doctorName =$_REQUEST['DocName'];
 $date =$_REQUEST['Date'];
 $roomNo =$_REQUEST['RoomNo'];
-echo $name;
+
 
 
 ?>
@@ -28,9 +28,7 @@ echo $name;
         //header("location:home.php");
         //echo "Paymet  Complete";
     }
-    else{
-        echo "err";
-    }
+
 
 
 
@@ -72,7 +70,8 @@ echo $name;
     </p>
     <hr><br>
     <div class="center">
-    	<a href="home.php"><button type="button" class="btn btn-primary btn-lg btn-block">Back to home</button></a>
+    	<a href="home.php"><button type="button" class="btn btn-primary btn-lg btn-block">Back to home</button></a><br>
+        <a href="dashboard.php"><button type="button" class="btn btn-info btn-lg btn-block">Back to Dashboard</button></a>
     </div>
    <hr>
 </body>

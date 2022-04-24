@@ -62,7 +62,7 @@
     <div class="embed-responsive embed-responsive-16by9">
     <iframe src="dashhome.php" name="myFrame" class="embed-responsive-item" ></iframe>
      <br><br><hr class="hr">
-      </div>     
+    </div>     
 
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
@@ -83,20 +83,20 @@
                         <span class="nav__name">Manage Doctors</span>
                     </a>
 
-                    <a href="notice.html" class="nav__link">
-                        <i class='bx bx-message-square-detail nav__icon' ></i>
-                        <span class="nav__name">News</span>
+                    <a href="patient/addPatient.php" class="nav__link" target="myFrame">
+                        <i class='bx bx-user-plus nav__icon' ></i>
+                        <span class="nav__name">Manage Patients</span>
                     </a>
 
 
 
-                    <a href="report.html" class="nav__link">
+                    <a href="report.html" class="nav__link" target="myFrame">
                         <i class='bx bx-folder nav__icon' ></i>
                         <span class="nav__name">Reports</span>
                     </a>
 
                     <a href="parmacy.php" class="nav__link">
-                        <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
+                        <i class='bx bx-bar-chart-alt-2 nav__icon'  target="myFrame"></i>
                         <span class="nav__name">Summary</span>
                     </a>
                 </div>
