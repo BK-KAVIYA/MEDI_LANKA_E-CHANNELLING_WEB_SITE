@@ -22,9 +22,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="../patient/addPatient.php">Add Patient <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="../admin/viewPatient.php">Patient List</a>
+          <a class="nav-item nav-link" href="../patient/viewPatient.php">Patient List</a>
           <a class="nav-item nav-link" href="#">Remove</a>
-          <a class="nav-item nav-link disabled" href="../admin/editDoctor.php">Update</a>
+          <a class="nav-item nav-link disabled" href="../patient/editDoctor.php">Update</a>
         </div>
      </div>
   </nav>

@@ -33,7 +33,7 @@ session_start();
             <br>
             <div class="row">
                 <div class="col-md-8 col-lg-8 mb-5">
-                    <form id="AddDoctorForm" class="needs-validation p-5"  action="doctorRegistration.php" method="POST" novalidate>
+                    <form id="AddDoctorForm" class="needs-validation p-5"  action="doctorRegistration.php" method="POST" enctype="multipart/form-data" novalidate>
                         <h3 class="text text-primary" style="text-align: left">Add a Doctor</h3><br>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
@@ -72,8 +72,31 @@ session_start();
                                         if (mysqli_num_rows($result) > 0) {
                                             // output data of each row
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                ?>
-                                                <option><?php echo $row["specialty"]; ?></option>
+                                                 if($row[0] == "PHYSIOTHERAPY"){
+                                                    $spec = 1;
+                                                }
+                                                elseif ($row[0] == "EYE SURGEON"){
+                                                    $spec = 2;
+                                                }
+                                                elseif ($row[0] == "PEDIATRICIAN PHYSICIAN"){
+                                                    $spec = 3;
+                                                }elseif ($row[0] == "CLINICAL GENETICIST & GENETIC COUNSELOR"){
+                                                    $spec = 4;
+                                                }elseif ($row[0] == "PEDIATRIC CARDIOLOGIST"){
+                                                    $spec = 5;
+                                                }elseif ($row[0] == "NEONATOLOGIST"){
+                                                    $spec = 6;
+                                                }elseif ($row[0] == "RESTORATIVE DENTISTRY"){
+                                                    $spec = 7;
+                                                }elseif ($row[0] == "DERMATOLOGIST"){
+                                                    $spec = 8;
+                                                }elseif ($row[0] == "MICROBIOLOGIST"){
+                                                    $spec= 9;
+                                                }else{
+                                                    $spec = 10;
+                                                }
+                                                    ?>
+                                                <option value="<?php echo $spec; ?>"><?php echo $row["specialty"]; ?></option>
                                                 <?php
                                             }
                                         } else {
@@ -156,6 +179,12 @@ session_start();
                                 <div class="invalid-feedback">
                                     Please provide a valid Contact Number.
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-3 bt-3">
+                            <div class="col-md-12">
+                                <label for="validationCustom03"><strong>Profile Picture</strong></label>
+                                <input type="file" class="ml-2"  class="form-control" name="my_image"  >
                             </div>
                         </div>
                         <div class="form-row">

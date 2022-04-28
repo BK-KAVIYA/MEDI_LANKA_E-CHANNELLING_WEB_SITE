@@ -37,7 +37,7 @@
                 setcookie('uname','',time()-3600);
                 setcookie('password','',time()-3600);
                 }
-                header("location:home.php");
+                header("location:../home.php");
            }
             ?>
     <header class="header" id="header">
@@ -73,7 +73,7 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="channel.html" class="nav__link active">
+                    <a href="dashhome.php" class="nav__link active" target="myFrame"> 
                     <i class='bx bx-grid-alt nav__icon' ></i>
                         <span class="nav__name">Admin Dashboard</span>
                     </a>
@@ -90,12 +90,12 @@
 
 
 
-                    <a href="report.html" class="nav__link" target="myFrame">
-                        <i class='bx bx-folder nav__icon' ></i>
-                        <span class="nav__name">Reports</span>
+                    <a href="My_account.php" class="nav__link" target="myFrame">
+                        <i class='bx bx-edit nav__icon' ></i>
+                        <span class="nav__name">Feedback</span>
                     </a>
 
-                    <a href="parmacy.php" class="nav__link">
+                    <a href="feedback.php" class="nav__link" target="myFrame">
                         <i class='bx bx-bar-chart-alt-2 nav__icon'  target="myFrame"></i>
                         <span class="nav__name">Summary</span>
                     </a>

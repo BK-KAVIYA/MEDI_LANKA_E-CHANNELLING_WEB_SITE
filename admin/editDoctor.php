@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
             <br>
             <div class="row">
                 <div class="col-md-8 col-lg-8">
-                    <form id="AddDoctorForm" class="needs-validation"  action="updateDoctor.php?id=<?php echo $submit_id ?>" method="POST" novalidate>
+                    <form id="AddDoctorForm" class="needs-validation p-5"  action="updateDoctor.php?id=<?php echo $submit_id ?>" method="POST" novalidate>
                         <h3 class="text text-primary" style="text-align: center">Update Doctor Details</h3><br>
                         <div class="form-row">
                             <div class="col-md-12">

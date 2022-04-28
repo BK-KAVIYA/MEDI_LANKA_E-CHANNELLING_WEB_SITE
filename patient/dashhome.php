@@ -163,17 +163,31 @@ $sql="SELECT Email,Telephone FROM patient WHERE Id='".$_SESSION['uid']."' ";
                         $specList = mysqli_query($conn,"select distinct speciality from doctor");
                         while($spec = mysqli_fetch_row($specList)){
                         if($spec[0] == 1){
-                            $spec[0] = "Mental";
+                            $spe = "PHYSIOTHERAPY";
                         }
                         elseif ($spec[0] == 2){
-                            $spec[0] = "Dental";
+                            $spe = "EYE SURGEON";
                         }
                         elseif ($spec[0] == 3){
-                            $spec[0] = "VOG";
+                            $spe = "PEDIATRICIAN PHYSICIAN";
+                        }elseif ($spec[0] == 4){
+                            $spe = "CLINICAL GENETICIST & GENETIC COUNSELOR";
+                        }elseif ($spec[0] == 5){
+                            $spe = "  PEDIATRIC CARDIOLOGIST";
+                        }elseif ($spec[0] == 6){
+                            $spe = "NEONATOLOGIST";
+                        }elseif ($spec[0] == 7){
+                            $spe = "RESTORATIVE DENTISTRY";
+                        }elseif ($spec[0] == 8){
+                            $spe = "DERMATOLOGIST";
+                        }elseif ($spec[0] == 9){
+                            $spe = "MICROBIOLOGIST";
+                        }else{
+                            $spe = "OTHERS";
                         }
 
                       ?>
-                    <option value="<?php echo $spec[0]; ?>"><?php echo $spec[0]; ?></option>
+                    <option value="<?php echo $spec[0]; ?>"><?php echo $spe; ?></option>
                   <?php
                     }
                   ?>                  

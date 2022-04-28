@@ -45,7 +45,7 @@
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
 
-        <form class="form-inline" action="/action_page.php">
+        <form class="form-inline" action="#">
           <input class="form-control" type="text" placeholder="Search">
           <button class="btn btn-primary ml-3" type="submit">Search</button>
         </form>
@@ -62,8 +62,8 @@
 
     </header>
 	<br>
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe src="patient/dashhome.php"  name="myFrame" class="embed-responsive-item" ></iframe>
+  <div class="embed-responsive embed-responsive-21by9">
+    <iframe class="embed-responsive-item" src="patient/dashhome.php"  name="myFrame" allowfullscreen></iframe>
     <br><br><hr class="hr">
   </div>
   <br><br><hr class="hr">
@@ -78,29 +78,29 @@
                 </a>
 
                 <div class="nav__list">
-                    <a href="channel.php" class="nav__link active">
+                    <a href="patient/dashhome.php" class="nav__link active" target="myFrame">
                     <i class='bx bx-grid-alt nav__icon' ></i>
                         <span class="nav__name">Channel a Doctor</span>
                     </a>
 
-                    <a href="doctor.php" class="nav__link">
+                    <a href="patient/doctor.php" class="nav__link" target="myFrame">
                         <i class='bx bx-user nav__icon' ></i>
                         <span class="nav__name">Doctors</span>
                     </a>
 
-                    <a href="channel.php" class="nav__link">
+                    <a href="patient/channel.php" class="nav__link" target="myFrame">
                         <i class='bx bx-message-square-detail nav__icon' ></i>
                         <span class="nav__name">My Channelling</span>
                     </a>
 
 
 
-                    <a href="report.php" class="nav__link">
+                    <a href="report.php" class="nav__link" target="myFrame">
                         <i class='bx bx-folder nav__icon' ></i>
                         <span class="nav__name">Reports</span>
                     </a>
 
-                    <a href="parmacy.php" class="nav__link">
+                    <a href="parmacy.php" class="nav__link" target="myFrame">
                         <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
                         <span class="nav__name">Parmacy</span>
                     </a>
@@ -109,6 +109,7 @@
 		</nav>
     </div>
     <?php include 'footer.php'; ?>
+
  <script src="js/main.js"></script>
   </body>
 </html>

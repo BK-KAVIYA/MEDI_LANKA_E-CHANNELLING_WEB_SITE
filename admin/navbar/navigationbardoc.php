@@ -23,8 +23,8 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="../admin/addAdoctor.php">Add Doctor <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="../admin/viewDoctor.php">Doctor List</a>
-          <a class="nav-item nav-link" href="#">Remove</a>
-          <a class="nav-item nav-link disabled" href="../admin/editDoctor.php">Update</a>
+          <a class="nav-item nav-link " href="../admin/editDoctor.php" disabled>Update</a>
+          <a class="nav-item nav-link" href="#" disabled>Remove</a>
         </div>
      </div>
   </nav>

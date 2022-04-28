@@ -8,17 +8,29 @@ if (isset($_POST['search'])) {
     $spec = $_POST['spec'];
     $date = $_POST['date'];
 
+    if($spec == 1){
+            $spe = "PHYSIOTHERAPY";
+    }elseif ($spec == 2){
+             $spe = "EYE SURGEON";
+    }elseif ($spec == 3){
+            $spe = "PEDIATRICIAN PHYSICIAN";
+    }elseif ($spec == 4){
+            $spe = "CLINICAL GENETICIST & GENETIC COUNSELOR";
+    }elseif ($spec == 5){
+            $spe = "  PEDIATRIC CARDIOLOGIST";
+    }elseif ($spec == 6){
+            $spe = "NEONATOLOGIST";
+    }elseif ($spec == 7){
+            $spe = "RESTORATIVE DENTISTRY";
+    }elseif ($spec == 8){
+             $spe = "DERMATOLOGIST";
+    }elseif ($spec == 9){
+             $spe = "MICROBIOLOGIST";
+    }else{
+            $spe = "OTHERS";
+    }  
 
 
-    if($spec == "Mental"){
-        $spec = 1;
-    }
-    else if($spec == "Dental"){
-        $spec = 2;
-    }
-    else if($spec == "VOG"){
-        $spec = 3;
-    }
 
 
 
@@ -49,7 +61,7 @@ if (isset($_POST['search'])) {
         <nav aria-label="...">
             <ul class="pagination">
                 <li class="page-item ">
-                    <a class="page-link bg-primary text-light" href="dashhome.php" tabindex="-1"> Previous</a>
+                    <a class="page-link bg-primary text-light" onClick="goBack()" tabindex="-1"> Previous</a>
                 </li>
             </ul>
         </nav>
@@ -66,7 +78,7 @@ if (isset($_POST['search'])) {
 
       $query1 ="SELECT * FROM doctor_shedule INNER JOIN doctor ON doctor_shedule.doctorId=doctor.id WHERE( 
           ((doctor_shedule.day >= $day) AND
-          (doctor.speciality = '$spec') ) OR
+          (doctor.speciality = $spec) ) OR
           ((doctor_shedule.sheduleType='Daily') AND (doctor.speciality = '$spec')) OR
           ((doctor.docName = '$name') AND (doctor_shedule.day >= $day))  
           )ORDER BY FIELD(doctor.docName, '$name') DESC, doctor.docName ASC,doctor_shedule.day ASC";
@@ -86,18 +98,10 @@ if (isset($_POST['search'])) {
 
             if(mysqli_num_rows($result_set1)>0){
                 while($record1 = mysqli_fetch_assoc($result_set1)){
-                    if($record1['speciality']==2){
-                        $record1['speciality']= "Dental";
-                    }
-                    else if($record1['speciality']==1){
-                        $record1['speciality']= "Mental";
-                    }else if($record1['speciality']==3){
-                         $record1['speciality']= "VOG";
-                    }
                     ?>
                     <tr>
                         <td><?php echo $record1['docName'] ?></td>
-                        <td><?php echo  $record1['speciality'] ?></td>
+                        <td><?php echo  $spe; ?></td>
                         <td><?php echo $record1['sheduleType'] ?></td>
                         <td>
                         <?php if($record1['day']==NULL){
@@ -141,7 +145,14 @@ if (isset($_POST['search'])) {
 
 </div>
 <br><br><br><br><br>
+
   <script type="text/javascript">
+  function goBack() {
+    window.history.back();
+    }
+     if ( window.history.replaceState ) {
+                        window.history.replaceState( null, null, window.location.href );
+                }
     var dateToday = new Date();
     document.write(dateToday);
   </script>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -13,17 +14,17 @@
     
       <style media="screen">
     .section-team {
-    	font-family: "Poppins", sans-serif;
-    	padding: 80px 0;
+        font-family: "Poppins", sans-serif;
+        padding: 80px 0;
     }
 
     .section-team .header-section {
-    	margin-bottom: 50px;
+        margin-bottom: 50px;
     }
 
     .section-team .header-section .small-title {
         margin-bottom: 25px;
-    	font-size: 16px;
+        font-size: 16px;
         font-weight: 500;
         color: #3e64ff;
     }
@@ -35,15 +36,15 @@
     }
 
     .section-team .single-person {
-    	margin-top: 30px;
-    	padding: 30px;
-    	background-color: #f6f9ff;
-    	border-radius: 5px;
-		height: 420px;
+        margin-top: 30px;
+        padding: 30px;
+        background-color: #f6f9ff;
+        border-radius: 5px;
+        height: 420px;
     }
 
     .section-team .single-person:hover {
-    	background: linear-gradient(to right, #016cec, #00b5f7);
+        background: linear-gradient(to right, #016cec, #00b5f7);
     }
 
     .section-team .single-person .person-image {
@@ -55,17 +56,17 @@
     }
 
     .section-team .single-person:hover .person-image {
-    	padding: 12px;
+        padding: 12px;
         border: 4px dashed #fff;
     }
 
     .section-team .single-person .person-image img {
-    	width: 100%;
+        width: 100%;
         border-radius: 50%;
     }
 
     .section-team .single-person .person-image .icon {
-    	position: absolute;
+        position: absolute;
         bottom: 0;
         left: 50%;
         transform: translate(-50%,50%);
@@ -81,14 +82,14 @@
     }
 
     .section-team .single-person:hover .person-image .icon {
-    	background: none;
-    	background-color: #fff;
-    	color: #016cec;
+        background: none;
+        background-color: #fff;
+        color: #016cec;
     }
 
     .section-team .single-person .person-info .full-name {
-    	margin-bottom: 10px;
-    	font-size: 28px;
+        margin-bottom: 10px;
+        font-size: 28px;
         font-weight: 700;
     }
 
@@ -100,7 +101,7 @@
 
     .section-team .single-person:hover .full-name,
     .section-team .single-person:hover .speciality {
-    	color: #fff;
+        color: #fff;
     }
 
     .mini-footer {
@@ -120,19 +121,60 @@
     .mini-footer p a:hover {
        color:#34bfa3
     }
-		  .same-height{
-			  height: 190px;
-		  }
+          .same-height{
+              height: 190px;
+          }
+    
   </style>
 
   <!-- js -->
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
 
   <title>MEDI Lanka</title>
 </head>
 <body class="bg-primary">
+
+<?php
+
+
+//database connection
+$conn = new mysqli('localhost','root','','echannelling1');
+
+if($conn->connect_error){
+    die('Could not connect:'.$conn->connect_error);
+}
+if(isset($_POST['submit'])){
+    
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['mesg'];
+    
+    $stmt= $conn->prepare("insert into Customer_feeedback(C_name,Email,Subject,Massage) values(?,?,?,?)");
+    $stmt->bind_param("ssss",$name,$email,$subject,$message);
+    if($stmt->execute()){ 
+    echo  "<script type=\"text/javascript\">
+    Swal.fire({ 
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your feedback has been saved',
+        showConfirmButton: false,
+        timer: 1500
+        
+})
+
+</script>";
+        
+    }
+    $stmt->close();
+    $conn->close();
+    
+}
+?>
 
    <?php include 'navigationbar.php'; ?>
 
@@ -250,36 +292,40 @@ The service is open and available to all 22 million plus Sri Lankans, and we at 
                  </div>
               </div>
               <div class="card-body p-3">
-					
+                    
                     <div class="form-group">
-						<form>
+                    <!--Editing-->
+                        <form method="POST" >
                     <label> Your name </label>
                     <div class="input-group">
-                       <input value="" type="text" name="data[name]" class="form-control" id="inlineFormInputGroupUsername" placeholder="Your name" required>
+                       <input value="" type="text" name="name" class="form-control" id="inlineFormInputGroupUsername" placeholder="Your name" required>
                     </div>
           </div>
                     <div class="form-group">
                        <label>Your email</label>
                        <div class="input-group mb-2 mb-sm-0">
-                          <input type="email" value="" name="data[email]" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email" required>
+                          <input type="email" value="" name="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email" required>
                        </div>
                     </div>
                     <div class="form-group">
                        <label>Subject</label>
                        <div class="input-group mb-2 mb-sm-0">
-                          <input type="text" name="data[subject]" class="form-control" id="inlineFormInputGroupUsername" placeholder="Subject">
+                          <input type="text" name="subject" class="form-control" id="inlineFormInputGroupUsername" placeholder="Subject">
                        </div>
                     </div>
                     <div class="form-group">
                        <label>Message</label>
                        <div class="input-group mb-2 mb-sm-0">
-                          <input type="text" class="form-control" name="mesg" required>
+                          <input type="text" class="form-control" name="mesg" id="messege" required>
                        </div>
                     </div>
                     <div class="text-center">
-                       <input type="submit" name="submit" value="submit" class="btn btn-info btn-block rounded-0 py-2">
+                       <input type="submit" name="submit" value="submit" class="btn btn-info btn-block rounded-0 py-2" onclick="openPopup()">
+                       
                     </div>
-					</form>
+                    
+                    
+                    </form>
              </div>
 
               </div>
@@ -297,6 +343,7 @@ The service is open and available to all 22 million plus Sri Lankans, and we at 
         </div>
   </section>
    <?php include 'footer.php'; ?>
+
 
 
   </body>

@@ -5,9 +5,9 @@
   $dateFromSession=$_REQUEST['Day'];
 
 
-$day =  substr($dateFromSession, 3,2);
-$month =  substr($dateFromSession, 0,2);
-$year =  substr($dateFromSession, 6,4);
+$day =  substr($dateFromSession, 8,2);
+$month =  substr($dateFromSession, 5,2);
+$year =  substr($dateFromSession, 0,4);
 
 ?>
 <!DOCTYPE html>
@@ -45,6 +45,7 @@ $year =  substr($dateFromSession, 6,4);
 
             <?php
             $sql="select * from doctor WHERE id='".$id."' ";
+            //$sql="select * from doctor WHERE id='34' ";
             $result = mysqli_query($conn, $sql);
             $rows = mysqli_num_rows($result);
             if ($rows > 0) {
@@ -58,17 +59,32 @@ $year =  substr($dateFromSession, 6,4);
                     $phone =$row['telHome'];
                     $Email =$row['email'];
                     $channelRoomNo =$row['channelRoomNo'];
+                    $image=$row['img_url'];
 
 
-                    if($speciality == 1){
-                        $speciality = "Mental";
-                    }
-                    else if($speciality == 2){
-                        $speciality = "Dental";
-                    }
-                    else if($speciality == 3){
-                        $speciality = "VOG";
-                    }
+                     if($speciality == 1){
+                            $speciality = "PHYSIOTHERAPY";
+                        }
+                        elseif ($speciality == 2){
+                            $speciality = "EYE SURGEON";
+                        }
+                        elseif ($speciality == 3){
+                            $speciality = "PEDIATRICIAN PHYSICIAN";
+                        }elseif ($speciality == 4){
+                            $speciality = "CLINICAL GENETICIST & GENETIC COUNSELOR";
+                        }elseif ($speciality == 5){
+                            $speciality = "  PEDIATRIC CARDIOLOGIST";
+                        }elseif ($speciality == 6){
+                            $speciality = "NEONATOLOGIST";
+                        }elseif ($speciality == 7){
+                            $speciality = "RESTORATIVE DENTISTRY";
+                        }elseif ($speciality == 8){
+                            $speciality = "DERMATOLOGIST";
+                        }elseif ($speciality == 9){
+                            $speciality = "MICROBIOLOGIST";
+                        }else{
+                            $speciality = "OTHERS";
+                        }
 
                     echo "<div class=\"container\" id=\"div_color\">";
                     echo "<h1>Dr. ";
@@ -83,8 +99,8 @@ $year =  substr($dateFromSession, 6,4);
             }
             ?>
 
-        </div>
-        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" height="150px" class="img-circle img-responsive" src="img/Avatar/docavatar.png"></a>
+        </div>        
+        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" height="150px" class="img-circle img-responsive" src="../admin/img/uploads/Sample/<?php echo $image; ?>"></a>
             <!-- user kiyala page ekakata link kala oninam -->
         </div>
     </div>
@@ -162,7 +178,11 @@ $year =  substr($dateFromSession, 6,4);
 
 
         
-           <script>
+ 
+            <script type="text/javascript">
+            function goBack() {
+             window.history.back();
+            }
             $(document).ready(function(){
                 $("button").click(function(){
                     //alert("Do You Wish To Channel This Doctor");

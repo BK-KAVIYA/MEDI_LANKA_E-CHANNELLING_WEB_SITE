@@ -48,8 +48,8 @@ include("db.php");
               <a class="nav-link text-uppercase w3-bar-item w3-button w3-padding-large w3-hide-small text-white" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-              <form method="post">
-              <button class="nav-link text-uppercase w3-bar-item w3-button bg-primary w3-padding-large w3-hide-small text-white"  name="check">My Channelling</button>
+              <form method="post"><center>
+              <button class="nav-link text-uppercase w3-bar-item w3-button bg-primary w3-padding-large w3-hide-small text-white"  name="check">My Channelling</button></center>
               </form>
             </li>
             <li class="nav-item">
@@ -60,14 +60,14 @@ include("db.php");
             </li>
             </ul>
 	            <form class="form-inline sercch-alighnment" style="margin-left:25px;" action="/action_page.php">
-                <div class="row">
+                <div class="row" style="flex-wrap: nowrap;">
 	               <input class="form-control mr-sm-2" type="text" placeholder="Search">
 	               <button class="btn btn-success" type="submit">Search</button>
                 </div>
 	            </form>
-        <div style="margin-left: 160px;">
-			  <ul class="navbar-nav" >
-  				<li class="nav-item ml-3">
+        <div style="margin-left: auto;">
+			  <ul class="navbar-nav ml-4" >
+  				<li class="nav-item">
   				  <a class="nav-link text-uppercase btn btn-info text-white" href="login.php">Login</a>
   				</li>
 

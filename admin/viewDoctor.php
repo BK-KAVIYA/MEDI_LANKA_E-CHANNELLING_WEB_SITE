@@ -23,7 +23,7 @@ session_start();
 
     </head>
     <body>
-
+        <br><br>
         <div  >
             <?php include('navbar/navigationbardoc.php') ?>
         </div>
