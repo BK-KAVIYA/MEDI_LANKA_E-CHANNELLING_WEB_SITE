@@ -79,7 +79,7 @@ if($rows>0){
     <div>
       
        
-      <img src="img/banner/banner.png" style="width:700px;height: 100px;border-radius: 0;">
+      <img src="img/banner/banner.jpg" style="width:700px;height: 100px;border-radius: 0;">
     </div>
    
     

@@ -25,7 +25,7 @@ $year =  substr($dateFromSession, 0,4);
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <title>E Channel</title>
+    <title>MEDI LANKA</title>
   </head>
   <body>
 

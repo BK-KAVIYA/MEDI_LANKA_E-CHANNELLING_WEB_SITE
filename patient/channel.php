@@ -106,7 +106,7 @@ session_start();
 
         $uid=$_SESSION['uid'];
 
-        $sql="SELECT * FROM payedpatients WHERE Uid='1'";
+        $sql="SELECT * FROM payedpatients WHERE Uid='$uid';";
         $result = mysqli_query($conn,$sql);
         $rows = mysqli_num_rows($result);
         if($rows>0){

@@ -8,7 +8,7 @@
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/bootstrap.min.css"> 
 
 
@@ -24,14 +24,17 @@
     <title>Channel a Doctor</title>
 </head>
 <body id="body-pd">
+    <script type="text/javascript">
+        $('.li-modal').on('click', function(e){
+      e.preventDefault();
+      $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+    });
+    </script>
   <?php
           if(isset($_POST['button1'])) {
-            //header("location:dashboard.php");
             session_start();
               session_destroy();
               if(isset($_COOKIE['email']) and isset($_COOKIE['password'])){
-              //  $uname=$_COOKIE['uname'];
-               // $pass=$_COOKIE['password'];
                  unset($_COOKIE['email']);
                 unset($_COOKIE['password']);
                 setcookie('email','',time()-3600);
@@ -95,21 +98,21 @@
 
 
 
-                    <a href="report.php" class="nav__link" target="myFrame">
+                    <a href="patient/invoice.php" class="nav__link" target="myFrame">
                         <i class='bx bx-folder nav__icon' ></i>
-                        <span class="nav__name">Reports</span>
+                        <span class="nav__name">Invoice</span>
                     </a>
 
-                    <a href="parmacy.php" class="nav__link" target="myFrame">
+                    <a href="patient/feedback.php" class="nav__link" class='li-modal' target="myFrame">
                         <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
-                        <span class="nav__name">Parmacy</span>
+                        <span class="nav__name">About US</span>
                     </a>
                 </div>
             </div>
 		</nav>
     </div>
     <?php include 'footer.php'; ?>
-
+    
  <script src="js/main.js"></script>
   </body>
 </html>

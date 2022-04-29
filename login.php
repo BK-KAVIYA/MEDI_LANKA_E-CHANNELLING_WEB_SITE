@@ -15,9 +15,40 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/style1.css">
 	<!--Alert-->
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<style type="text/css">
+		.register i{
+            margin-top: 15%;
+            margin-bottom: 5%;
+            width: 25%;
+            -webkit-animation: mover 2s infinite  alternate;
+            animation: mover 1s infinite  alternate;
+        }
+        @-webkit-keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        .registerone i{
+            margin-top: 15%;
+            margin-bottom: 5%;
+            width: 25%;
+            -webkit-animation: mover 2s infinite  alternate;
+            animation: mover 2s infinite  alternate;
+        }
+        @-webkit-keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+	</style>
 </head>
-<body background="img/Loging/back.jpg">
-<?php include 'navigationbar.php'; ?>
+<body background="img/Loging/back2.jpg">
 
 <?php
 
@@ -96,10 +127,10 @@ session_start();
 	
 
 ?>
-						
+<?php include 'navigationbar.php'; ?>						
 <div class="container">
 	<div class="d-flex justify-content-center h-100 ">
-		<div class="card bg-info">
+		<div class="card bg-info border-success">
 			<div class="card-header">
 			<div class="row d-flex text-uppercase">
 				<img src="img/Logo/logo1.png" class="logo-nav float-right navbar-brand bg-info" >
@@ -107,9 +138,9 @@ session_start();
 			</div>
 
 				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square text-light"></i></span>
-					<span><i class="fab fa-google-plus-square text-light"></i></span>
-					<span><i class="fab fa-twitter-square text-light"></i></span>
+					<span class="register"><i class="fab fa-facebook-square text-light"></i></span>
+					<span class="registerone"><i class="fab fa-google-plus-square text-light"></i></span>
+					<span class="register"><i class="fab fa-twitter-square text-light"></i></span>
 				</div>
 			</div>
 			<div class="card-body bg-primary">
@@ -131,7 +162,7 @@ session_start();
 						<input type="checkbox" name="remember">Remember Me
 					</div>
 					<div class="form-group">
-						<input type="submit" name="login" value="Login" class="btn float-right login_btn bg-info text-white font-weight-bold">
+						<input type="submit" name="login" value="Login" class="btn float-right login_btn bg-success border text-white font-weight-bold">
 					</div>
 				</form>
 			</div>

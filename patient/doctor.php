@@ -23,67 +23,86 @@
     <div class="container">
       <br><br><br>
       <h2 class="text-center font-weight-bold text-primary  p-4">OUR BEST DOCTOR'S</h2>
-      <div class="row">
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d1.jpg" alt="" class="img-fluid">
-          <h5>General Surgeon</h5>
-          <h4>Dr.A.S.K.Banagala</h4>
-          <p>ASIRI SURGICAL HOSPITAL - KIRIMANDALA MW - COLOMBO 05 SESSIONS</p>
-          <a href="Docinfo/docinfo.html" class="btn btn-info">Read More..</a>
+      <div class="card-deck">
+        <div class="card bg-primary text-light">
+          <img class="card-img-top" src="../img/doc/d7.JPG" alt="Card image cap">
+          <div class="card-body">
+          <h5 class="card-title">Dr.RASANJALI SENAVIRATHNA</h5>
+          <p class="card-text">ASIRI CENTRAL HOSPITAL - NORRIS CANAL ROAD-COLOMBO 10.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
         </div>
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d2.jpg" alt="" class="img-fluid">
-          <h5>Orthopaedic Surgeon</h5>
-          <h4>Dr.ASHAN ABEYEWARDENE</h4>
-          <p>ASIRI CENTRAL HOSPITAL - NORRIS CANAL ROAD-COLOMBO 10</p>
-          <a href="Docinfo/drashen.html" class="btn btn-info">Read More..</a>
+        <div class="card bg-primary text-light">
+          <img class="card-img-top" src="../img/doc/d8.webp" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Dr. KALANI MADHUSHIKA</h5>
+            <p class="card-text">KARAPITIYA GENARAL HOSPITAL.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
         </div>
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d3.jpg" alt="" class="img-fluid">
-          <h5>Gynaecologist</h5>
-          <h4>Dr. DAMMIKE SILVA</h4>
-          <p>KALUBOWILA TEACHING HOSPITAL</p>
-          <a href="Docinfo/drdam.html" class="btn btn-info">Read More..</a>
-        </div>
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d4.jpg" alt="" class="img-fluid">
-          <h5>Eye Surgeon</h5>
-          <h4>Dr.C.A.B MAKULOLUWA</h4>
-          <p>NAWALOKA HOSPITAL COLOMBO</p>
-          <a href="Docinfo/drmak.html" class="btn btn-info">Read More..</a>
+        <div class="card bg-primary text-light">
+          <img class="card-img-top" src="../img/doc/d9.webp" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Dr DILKI GAMAGE</h5>
+            <p class="card-text">MATARA GENARAL HOSPITAL.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+      </div>
+    </div> 
+        <div class="card-deck">
+      <div class="card bg-primary text-light">
+        <img class="card-img-top" src="../img/doc/d1.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Dr.A.S.K.Banagala</h5>
+          <p class="card-text">ASIRI SURGICAL HOSPITAL - KIRIMANDALA MW - COLOMBO 05 SESSIONS.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d5.png" alt="" class="img-fluid">
-          <h5>Gastroenterological Surgeon</h5>
-          <h4>Prof.ISHAN DE ZOYSA</h4>
-          <p>ASIRI CENTRAL HOSPITAL-NORRIS CANAL ROAD-COLOMBO 10</p>
-          <a href="Docinfo/drishan.html" class="btn btn-info">Read More..</a>
+      <div class="card bg-primary text-light">
+        <img class="card-img-top" src="../img/doc/d2.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Dr Nishadi lakshika</h5>
+          <p class="card-text">ASIRI CENTRAL HOSPITAL - NORRIS CANAL ROAD-COLOMBO 10.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d6.jpg" alt="" class="img-fluid">
-          <h5>Dental Surgeon</h5>
-          <h4>Dr.NADEENA JAYASURIYA</h4>
-          <p>HEMAS HOSPITAL - THALAWATHUGODA</p>
-          <a href="Docinfo/drnadeena.html" class="btn btn-info">Read More..</a>
-        </div>
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d7.jpg" alt="" class="img-fluid">
-          <h5>General Physician,Internal Medicine</h5>
-          <h4>Dr.KANISHKA DISSANAYAKE</h4>
-          <p>KARAPITIYA TEACHING HOSPITAL</p>
-          <a href="Docinfo/drkanishka.html" class="btn btn-info">Read More..</a>
-        </div>
-        <div class="col-sm-3 d-box bg-muted p-5">
-          <img src="img/d8.jpg" alt="" class="img-fluid">
-          <h5>Surgeon</h5>
-          <h4>Prof.D.J. ANTHONY</h4>
-          <p>ASIRI CENTRAL HOSPITAL - NORRIS CANAL ROAD-COLOMBO 10</p>
-          <a href="Docinfo/drdj.html" class="btn btn-info">Read More..</a>
+      </div>
+      <div class="card bg-primary text-light">
+        <img class="card-img-top" src="../img/doc/d3.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Dr Nimali Siriwardhana</h5>
+          <p class="card-text">KALUBOWILA TEACHING HOSPITAL.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
     </div>
+    <div class="card-deck">
+        <div class="card bg-primary text-light">
+          <img class="card-img-top" src="../img/doc/d4.webp" alt="Card image cap">
+          <div class="card-body">
+          <h5 class="card-title">Dr.ASHAN ABEYEWARDENE</h5>
+          <p class="card-text">ASIRI CENTRAL HOSPITAL - NORRIS CANAL ROAD-COLOMBO 10.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card bg-primary text-light">
+          <img class="card-img-top" src="../img/doc/d5.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Dr. DAMMIKE SILVA</h5>
+            <p class="card-text">KARAPITIYA GENARAL HOSPITAL.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card bg-primary text-light">
+          <img class="card-img-top" src="../img/doc/d6.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Dr Chathu Gamage</h5>
+            <p class="card-text">MATARA GENARAL HOSPITAL.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+      </div>
+    </div><br>
+       
+ 
     <br><br>
 
     <style media="screen">

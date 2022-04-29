@@ -59,11 +59,10 @@
     </header>
 
 	<br>
-    <div class="embed-responsive embed-responsive-16by9">
+    <div class=" ml-5 embed-responsive embed-responsive-16by9">
     <iframe src="dashhome.php" name="myFrame" class="embed-responsive-item" ></iframe>
-     <br><br><hr class="hr">
     </div>     
-
+     <br><br><hr class="hr">
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
@@ -84,26 +83,24 @@
                     </a>
 
                     <a href="patient/addPatient.php" class="nav__link" target="myFrame">
-                        <i class='bx bx-user-plus nav__icon' ></i>
+                        <i class='bx bx-plus-medical nav__icon' ></i>
                         <span class="nav__name">Manage Patients</span>
                     </a>
-
-
-
                     <a href="My_account.php" class="nav__link" target="myFrame">
+                        <i class='bx bx-brightness nav__icon'  target="myFrame"></i>
+                        <span class="nav__name">Setting</span>
+                    </a>
+                    <a href="feedback.php" class="nav__link" target="myFrame">
                         <i class='bx bx-edit nav__icon' ></i>
                         <span class="nav__name">Feedback</span>
                     </a>
 
-                    <a href="feedback.php" class="nav__link" target="myFrame">
-                        <i class='bx bx-bar-chart-alt-2 nav__icon'  target="myFrame"></i>
-                        <span class="nav__name">Summary</span>
-                    </a>
+                    
                 </div>
             </div>
 		</nav>
     </div>
     <?php include 'footer.php'; ?>
- <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

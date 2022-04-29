@@ -247,5 +247,6 @@ $sql="SELECT Email,Telephone FROM patient WHERE Id='".$_SESSION['uid']."' ";
        </div>
      </div>
      <br>
+    <!-- <iframe src="https://data.worldbank.org/share/widget?end=2019&indicators=SH.MED.PHYS.ZS&locations=LK&start=2000" width='450' height='300' frameBorder='0' scrolling="no" ></iframe> -->
   </body>
 </html>
